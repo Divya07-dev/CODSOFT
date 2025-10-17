@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divya U Tirlapur | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Reset & Base */
+* { box-sizing: border-box; margin:0; padding:0; scroll-behavior: smooth;}
+body { font-family: 'Poppins', sans-serif; background: #f5f7fa; color: #333;}
+a { text-decoration: none; color: inherit; transition: 0.3s;}
+a:hover { color: #2575fc;}
+
+/* Navbar */
+nav { position: sticky; top:0; background: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow:0 4px 10px rgba(0,0,0,0.05); z-index:1000;}
+.logo { font-weight: 700; font-size: 1.3rem; color: #222;}
+.nav-links { list-style: none; display: flex; gap:1.5rem;}
+.nav-links li a { font-weight:500; }
+.nav-links li a.active { color: #2575fc; }
+
+/* Hamburger */
+.hamburger { display:none; flex-direction: column; cursor: pointer;}
+.hamburger .line { width:25px; height:3px; background:#222; margin:4px 0; transition: all 0.3s; }
+
+/* Hero */
+.hero { text-align:center; padding:100px 20px; background:#2575fc; color:#fff;}
+.hero h1 { font-size:2.8rem; margin-bottom:0.8rem;}
+.hero p { font-size:1.2rem; margin-bottom:1.5rem;}
+.btn { background:#fff; color:#2575fc; padding:12px 25px; border-radius:25px; font-weight:600; border:none; cursor:pointer; transition: 0.3s;}
+.btn:hover { background:#ffe259; color:#222;}
+
+/* Typing effect */
+.cursor { display:inline-block; background:#fff; width:2px; margin-left:2px; animation: blink 0.7s infinite;}
+@keyframes blink { 0%,50%,100% {opacity:1;} 25%,75% {opacity:0;}}
+
+/* Sections */
+section { padding:80px 20px; max-width:1000px; margin:auto; opacity:0; transform:translateY(20px); transition:all 0.6s ease;}
+section.visible { opacity:1; transform:translateY(0);}
+h2 { text-align:center; margin-bottom:50px; font-size:2rem; position:relative;}
+h2::after { content:''; display:block; width:60px; height:4px; background:#2575fc; margin:10px auto 0; border-radius:2px;}
+
+/* About */
+.about { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:40px;}
+.about img { width:200px; height:200px; border-radius:50%; border:4px solid #fff; object-fit:cover; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s;}
+.about img:hover { transform: scale(1.05);}
+.about p { max-width:600px; font-size:1.1rem; line-height:1.6; text-align:center; }
+
+/* Skills */
+.skills { display:flex; flex-wrap:wrap; justify-content:center; gap:25px;}
+.skill { background:#2575fc; color:#fff; padding:20px 25px; border-radius:30px; font-weight:500; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s;}
+.skill:hover { transform: translateY(-5px); }
+
+/* Projects */
+.projects { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:25px;}
+.project { position:relative; overflow:hidden; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s;}
+.project img { width:100%; height:160px; object-fit:cover;}
+.project:hover { transform: translateY(-5px);}
+.overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.65); color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; opacity:0; transition: opacity 0.3s; padding:15px;}
+.project:hover .overlay { opacity:1;}
+.overlay h3 { margin-bottom:0.5rem; font-size:1.1rem;}
+.overlay p { font-size:0.9rem;}
+
+/* Resume */
+.resume { text-align:center;}
+.resume a { display:inline-block; background:#2575fc; color:#fff; padding:12px 25px; border-radius:25px; font-weight:600; margin-top:15px; transition:0.3s;}
+.resume a:hover { background:#ffe259; color:#222; }
+
+/* Contact */
+.contact p { text-align:center; font-size:1.1rem; margin:10px 0;}
+.contact a { color:#2575fc;}
+.contact a:hover { color:#222;}
+
+/* Footer */
+footer { text-align:center; padding:25px 20px; background:#222; color:#fff; font-weight:500; margin-top:40px;}
+
+/* Responsive */
+@media(max-width:768px){
+  .about { flex-direction:column; text-align:center;}
+  .skills { flex-direction:column; align-items:center;}
+  .projects { grid-template-columns: 1fr; }
+  .hamburger { display:flex; }
+  .nav-links { position:absolute; top:65px; right:0; background:#fff; flex-direction:column; width:100%; display:none; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+  .nav-links.active { display:flex; }
+  .nav-links li { margin:1rem 0; }
+  .hamburger.toggle .line:nth-child(1){ transform:rotate(45deg) translateY(8px);}
+  .hamburger.toggle .line:nth-child(2){ opacity:0;}
+  .hamburger.toggle .line:nth-child(3){ transform:rotate(-45deg) translateY(-8px);}
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="logo">Divya U Tirlapur</div>
+  <ul class="nav-links">
+    <li><a href="#about" class="active">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Hello, I'm Divya</h1>
+  <p><span id="typed-text"></span><span class="cursor"></span></p>
+  <button class="btn" onclick="location.href='#projects'">View My Work</button>
+</div>
+
+<!-- About -->
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about">
+    <img src="profile.jpg" alt="Divya U Tirlapur">
+    <p>I am Divya, a dedicated web developer skilled in creating responsive and dynamic web applications using HTML, CSS, JavaScript, PHP, and React. I focus on building projects that are visually appealing and user-friendly.</p>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2>My Skills</h2>
+  <div class="skills">
+    <div class="skill"><i class="fab fa-html5"></i> HTML & CSS</div>
+    <div class="skill"><i class="fab fa-js-square"></i> JavaScript</div>
+    <div class="skill"><i class="fab fa-php"></i> PHP & MySQL</div>
+    <div class="skill"><i class="fab fa-react"></i> React.js</div>
+    <div class="skill"><i class="fas fa-mobile-alt"></i> Responsive Design</div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project">
+      <img src="Screenshot 2025-05-12 185225.png" alt="Khadi Gramodyoga Management System">
+      <div class="overlay"><h3>Khadi Gramodyoga Management System</h3><p>Admin system with PHP & MySQL.</p></div>
+    </div>
+    <div class="project">
+      <img src="Screenshot (16).png" alt="Advanced Calculator">
+      <div class="overlay"><h3>Advanced Calculator</h3><p>Feature-rich calculator using JS.</p></div>
+    </div>
+    <div class="project">
+      <img src="Screenshot (17).png" alt="Hangman Game">
+      <div class="overlay"><h3>Hangman Game</h3><p>Interactive word guessing game with JS & CSS.</p></div>
+    </div>
+    <div class="project">
+      <img src="Screenshot (18).png" alt="To-Do List">
+      <div class="overlay"><h3>To-Do List</h3><p>Task management app using local storage.</p></div>
+    </div>
+    <div class="project">
+      <img src="Screenshot (19).png" alt="Theme Clock">
+      <div class="overlay"><h3>Theme Clock</h3><p>Dynamic digital clock with multiple themes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Resume -->
+<section id="resume">
+  <h2>Resume</h2>
+  <div class="resume">
+    <p>Download my resume to know more about my qualifications and work experience.</p>
+    <a href="Divya_Tirlapur_ATS_Resume.pdf" download>Download Resume</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact">
+    <p>Email: <a href="mailto:divyatirlapur1@gmail.com">divyatirlapur1@gmail.com</a></p>
+    <p>Phone: +91-7019901480</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/divya-tirlapur-aa9004377/">linkedin.com/in/divya-tirlapur</a> | GitHub: <a href="https://github.com/Divya07-dev/">github.com/Divya07-dev</a></p>
+  </div>
+</section>
+
+<footer>&copy; 2025 Divya U Tirlapur. All rights reserved.</footer>
+
+<script>
+// Typing effect
+const texts = ["Web Developer", "BCA Graduate", "MCA Student"];
+let count = 0, index = 0;
+(function type(){
+  if(count === texts.length) count = 0;
+  const currentText = texts[count];
+  const letter = currentText.slice(0, ++index);
+  document.getElementById("typed-text").textContent = letter;
+  if(letter.length === currentText.length){
+    setTimeout(()=>{ index=0; count++; setTimeout(type,500); },1500);
+  } else { setTimeout(type,150); }
+})();
+
+// Fade-in sections
+const sections = document.querySelectorAll("section");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add("visible"); });
+},{ threshold: 0.1 });
+sections.forEach(section => observer.observe(section));
+
+// Navbar active link
+const navLinks = document.querySelectorAll(".nav-links li a");
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(section => { if(pageYOffset >= section.offsetTop - 120) current = section.getAttribute("id"); });
+  navLinks.forEach(link => link.classList.remove("active"));
+  document.querySelector(`.nav-links li a[href="#${current}"]`)?.classList.add("active");
+});
+
+// Hamburger menu
+const hamburger = document.querySelector(".hamburger");
+const navUL = document.querySelector(".nav-links");
+hamburger.addEventListener("click", () => {
+  navUL.classList.toggle("active");
+  hamburger.classList.toggle("toggle");
+});
+</script>
+</body>
+</html>
