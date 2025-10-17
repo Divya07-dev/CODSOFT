@@ -18,38 +18,39 @@ This repository showcases my skills in **HTML, CSS, and JavaScript**.
 
 ### 1. Landing Page
 A responsive landing page for a sample website.  
-![Landing Page](images/landingpage.png)  
+
 **File:** [landingpage.html](landingpage.html)  
+
 **Features:**
-- Clean, modern design
-- Responsive layout
-- Header, sections, and footer
+- Clean and modern design
+- Fully responsive layout
+- Header, multiple sections, and footer
 
 ---
 
 ### 2. Portfolio
 A personal portfolio page showcasing my projects and skills.  
-![Portfolio](images/portfolio.png)  
+
 **File:** [portfolio.html](portfolio.html)  
+
 **Features:**
-- Project showcase section
+- Projects showcase section
 - Skills and contact information
-- Interactive navigation
+- Interactive navigation menu
 
 ---
 
 ### 3. Calculator
 A simple web-based calculator built with HTML, CSS, and JavaScript.  
-![Calculator](images/calculator.png)  
+
 **File:** [calculator.html](calculator.html)  
+
 **Features:**
 - Basic arithmetic operations
-- Clear UI with number buttons
-- Interactive functionality with JavaScript
+- Clear and user-friendly interface
+- Fully interactive with JavaScript
 
 ---
 
 ## 📂 Folder Structure
 
-# CODSOFT
-“All tasks completed during my CodSoft Internship.”
